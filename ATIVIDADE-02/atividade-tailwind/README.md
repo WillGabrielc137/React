@@ -28,16 +28,15 @@ Você digita o nome de um usuário, clica em uma das rotas (Tailwind ou Styled) 
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
-### 2. Instale as dependências
-```bash
+2. Instale as dependências
+
 npm install
 
-### 3. Instale o TailwindCSS
-```bash
+3. Instale o TailwindCSS 💨
+
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
-### 4. Configure o seu TailwindCSS
 Depois disso, edite o tailwind.config.js para incluir os arquivos onde o Tailwind será aplicado:
 
 /** @type {import('tailwindcss').Config} */
@@ -52,32 +51,41 @@ export default {
   plugins: [],
 }
 
-E no seu index.css, delete todo o conteudo e em seguida adicione o seguinte código no topo:
+E no seu index.css, adicione o seguinte no topo:
 
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-### 5. Instale o Styled-Components
+4. Instale o Styled-Components 💅
 
 npm install styled-components
 npm install --save-dev @types/styled-components
 
-### 6. Rode o projeto
+5. Rode o projeto
+
 npm run dev
 
 📂 Como funciona?
 
-A tela principal (/) permite digitar o nome de um usuário do GitHub.
+    A tela principal (/) permite digitar o nome de um usuário do GitHub.
 
-Depois você pode escolher visualizar os dados em:
-    /Tailwind: com estilos utilizando TailwindCSS 💨
-    /Styled: com estilos utilizando Styled-Components 💅
+    Depois você pode escolher visualizar os dados em:
 
-As rotas são gerenciadas com React Router.
-Os dados são obtidos diretamente da GitHub API.
+        /Tailwind: com estilos utilizando TailwindCSS 💨
+
+        /Styled: com estilos utilizando Styled-Components 💅
+
+    As rotas são gerenciadas com React Router.
+
+    Os dados são obtidos diretamente da GitHub API.
 
 ⚠️ Observações
-Caso digite um nome inválido, será exibida uma mensagem de erro.
-O botão de "Voltar à Pesquisa" sempre estará lá pra você tentar de novo 😊
+
+    Caso digite um nome inválido, será exibida uma mensagem de erro.
+
+    O botão de "Voltar à Pesquisa" sempre estará lá pra você tentar de novo 😊
 
 📃 Licença
-Este projeto é livre para estudos, testes e aperfeiçoamento. Faça bom uso!
+
+Este projeto é livre para estudos, testes e aperfeiçoamento. Faça bom uso e sinta-se à vontade para contribuir!
