@@ -22,11 +22,11 @@ Você digita o nome de um usuário, clica em uma das rotas (`/Tailwind` ou `/Sty
 ## ⚙️ Requisitos
 
 Antes de começar, certifique-se de que sua máquina possui:
-    `Node.js` (v14 ou superior)
-    `npm` (vem junto com o `Node.js`)
-    Navegador moderno (`Chrome, Firefox, Edge etc.`)
-    `Terminal/Prompt de Comando`
-    Editor de Código como o `Visual Studio Code`
+- `Node.js` (v14 ou superior)
+- `npm` (vem junto com o `Node.js`)
+- Navegador moderno (`Chrome, Firefox, Edge etc.`)
+- `Terminal/Prompt de Comando`
+- Editor de Código como o `Visual Studio Code`
 
 ## 🧰 Instalação e Uso
 
@@ -101,8 +101,8 @@ npm run dev
 A tela principal (`/`) permite digitar o nome de um usuário do GitHub.
 
 Depois você pode escolher visualizar os dados em:
-    `/Tailwind`: com estilos utilizando TailwindCSS 💨
-    `/Styled`: com estilos utilizando Styled-Components 💅
+- `/Tailwind`: com estilos utilizando TailwindCSS 💨
+- `/Styled`: com estilos utilizando Styled-Components 💅
 
 As rotas são gerenciadas com React Router.
 
