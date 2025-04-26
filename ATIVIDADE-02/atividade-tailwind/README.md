@@ -1,4 +1,4 @@
-# 🔍 GitHub User Finder com TailwindCSS & Styled-Components
+# 🔍 GitHub User Finder usando TailwindCSS & Styled-Components
 
 Este projeto é um buscador de usuários do GitHub feito com **React**, onde você pode visualizar as informações públicas de qualquer usuário, como nome, bio, avatar, blog e seguidores. A mágica está no uso de **TailwindCSS** ✨ e **Styled-Components** 🎨 — e sim, você escolhe qual versão quer ver!
 
@@ -15,17 +15,20 @@ Este projeto é um buscador de usuários do GitHub feito com **React**, onde voc
 ---
 ## 📸 Preview
 
-Você digita o nome de um usuário, clica em uma das rotas (Tailwind ou Styled) e... voilá! Os dados aparecem de forma estilosa com o framework que você escolheu.
+Você digita o nome de um usuário, clica em uma das rotas (`/Tailwind` ou `/Styled`) e... voilà! Os dados aparecem de forma estilosa com o framework que você escolheu.
 
 ---
 
 ## 🧰 Instalação e Uso
 
+Em seu Prompt de Comando, selecione uma pasta para receber o projeto e em seguida, siga o passo-a-passo abaixo:
+
 ### 1. Clone o projeto
 ```bash
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/WillGabrielc137/React.git
+cd ATIVIDADE-02
+cd atividade-tailwind
 
 ```
 
@@ -45,7 +48,7 @@ npx tailwindcss init -p
 ```
 Depois disso, edite o `tailwind.config.js` para incluir os arquivos onde o Tailwind será aplicado:
 
-```bash
+```js
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -62,7 +65,7 @@ export default {
 ```
 E no seu `index.css`, delete todo o código presente e adicione no topo o seguinte código:
 
-```bash
+```css
 
 @import "tailwindcss";
 
@@ -86,16 +89,24 @@ npm run dev
 ```
 
 ## 📂 Como funciona?
-A tela principal (/) permite digitar o nome de um usuário do GitHub.
+A tela principal (`/`) permite digitar o nome de um usuário do GitHub.
+
 Depois você pode escolher visualizar os dados em:
-    /Tailwind: com estilos utilizando TailwindCSS 💨
-    /Styled: com estilos utilizando Styled-Components 💅
+
+    `/Tailwind`: com estilos utilizando TailwindCSS 💨
+
+    `/Styled`: com estilos utilizando Styled-Components 💅
+
 As rotas são gerenciadas com React Router.
+
 Os dados são obtidos diretamente da GitHub API.
 
 ## ⚠️ Observações
 Caso digite um nome inválido, será exibida uma mensagem de erro.
+
 O botão de "Voltar à Pesquisa" sempre estará lá pra você tentar de novo.
 
 ## 📃 Licença
-Este projeto é livre para estudos, testes e aperfeiçoamento. Faça bom uso :)
+Este projeto é livre para estudos, testes e aperfeiçoamento.
+
+Faça bom uso :)
