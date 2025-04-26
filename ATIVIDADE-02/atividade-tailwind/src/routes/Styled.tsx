@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 interface UsuarioGit {
   login: string;
@@ -16,40 +17,31 @@ interface StyledProps {
   usuario: string;
 }
 
-const Container = styled.div`
-  background-color: #1f2937;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-`;
-
 const Card = styled.div`
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   background-color: #2d3748;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
-  space-y: 24px;
 `;
 
 const Title = styled.h2`
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 `;
 
 const Button = styled.button`
   width: 100%;
   background-color: #4c51bf;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 16px;
+  border-radius: 10px;
   color: white;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 
@@ -60,21 +52,22 @@ const Button = styled.button`
 
 const InfoBox = styled.div`
   background-color: #4a5568;
-  padding: 16px;
-  border-radius: 12px;
-  space-y: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 `;
 
 const Avatar = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #667eea;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 `;
 
 const AvatarImage = styled.img`
@@ -88,26 +81,28 @@ const UserInfo = styled.div`
 `;
 
 const UserName = styled.p`
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
 `;
 
 const UserLogin = styled.p`
-  font-size: 14px;
+  font-size: 18px;
   color: #a0aec0;
 `;
 
 const Bio = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   color: #e2e8f0;
   text-align: center;
 `;
 
 const Details = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   color: #edf2f7;
   text-align: center;
-  space-y: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const Link = styled.a`
@@ -120,6 +115,7 @@ const Link = styled.a`
 function Styled({ usuario }: StyledProps) {
   const [dadosUsuario, setDadosUsuario] = useState<UsuarioGit | null>(null);
   const [erro, setErro] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const buscarUsuario = async () => {
@@ -145,46 +141,42 @@ function Styled({ usuario }: StyledProps) {
     if (usuario) buscarUsuario();
   }, [usuario]);
 
-  useEffect(() => {
-    console.log("Componente Styled carregado");
-  }, []);
-
-  
   return (
-    
-    <Container>
-      <Card>
-        <Title>Buscar Usuário do GitHub</Title>
-        <Button onClick={() => window.location.reload()}>Atualizar</Button>
+    <Card>
+      <Title>Buscar Usuário do GitHub</Title>
+      <Button onClick={() => navigate("/")}>Voltar à Pesquisa</Button>
 
-        {erro && <p style={{ color: "#e53e3e", marginTop: "16px" }}>Usuário não encontrado.</p>}
+      {erro && (
+        <p style={{ color: "#e53e3e", fontSize: "18px", marginTop: "24px" }}>
+          Usuário não encontrado.
+        </p>
+      )}
 
-        {dadosUsuario && (
-          <InfoBox>
-            <Avatar>
-              <AvatarImage src={dadosUsuario.avatar_url} alt="Avatar" />
-            </Avatar>
-            <UserInfo>
-              <UserName>{dadosUsuario.name}</UserName>
-              <UserLogin>@{dadosUsuario.login}</UserLogin>
-            </UserInfo>
-            <Bio>{dadosUsuario.bio}</Bio>
+      {dadosUsuario && (
+        <InfoBox>
+          <Avatar>
+            <AvatarImage src={dadosUsuario.avatar_url} alt="Avatar" />
+          </Avatar>
+          <UserInfo>
+            <UserName>{dadosUsuario.name}</UserName>
+            <UserLogin>@{dadosUsuario.login}</UserLogin>
+          </UserInfo>
+          <Bio>{dadosUsuario.bio}</Bio>
 
-            <Details>
-              <p><strong>📍 Localização:</strong> {dadosUsuario.location}</p>
-              <p>
-                <strong>🔗 Blog:</strong>{" "}
-                <Link href={dadosUsuario.blog} target="_blank">
-                  {dadosUsuario.blog}
-                </Link>
-              </p>
-              <p><strong>👥 Seguidores:</strong> {dadosUsuario.followers}</p>
-              <p><strong>➡️ Seguindo:</strong> {dadosUsuario.following}</p>
-            </Details>
-          </InfoBox>
-        )}
-      </Card>
-    </Container>
+          <Details>
+            <p><strong>Localização:</strong> {dadosUsuario.location}</p>
+            <p>
+              <strong>Blog:</strong>{" "}
+              <Link href={dadosUsuario.blog} target="_blank">
+                {dadosUsuario.blog}
+              </Link>
+            </p>
+            <p><strong>Seguidores:</strong> {dadosUsuario.followers}</p>
+            <p><strong>Seguindo:</strong> {dadosUsuario.following}</p>
+          </Details>
+        </InfoBox>
+      )}
+    </Card>
   );
 }
 

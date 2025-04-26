@@ -1,54 +1,83 @@
-# React + TypeScript + Vite
+# 🔍 GitHub User Finder com TailwindCSS & Styled-Components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um buscador de usuários do GitHub feito com **React**, onde você pode visualizar as informações públicas de qualquer usuário, como nome, bio, avatar, blog e seguidores. A mágica está no uso de **TailwindCSS** ✨ e **Styled-Components** 🎨 — e sim, você escolhe qual versão quer ver!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- React + Vite ⚛️
+- React Router DOM 🔁
+- TailwindCSS 💨
+- Styled-Components 💅
+- GitHub API 🔗
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
+## 📸 Preview
+
+Você digita o nome de um usuário, clica em uma das rotas (Tailwind ou Styled) e... voilá! Os dados aparecem de forma estilosa com o framework que você escolheu.
+
+---
+
+## 🧰 Instalação e Uso
+
+### 1. Clone o projeto
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+
+### 2. Instale as dependências
+```bash
+npm install
+
+### 3. Instale o TailwindCSS
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+### 4. Configure o seu TailwindCSS
+Depois disso, edite o tailwind.config.js para incluir os arquivos onde o Tailwind será aplicado:
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
+  theme: {
+    extend: {},
   },
-})
-```
+  plugins: [],
+}
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+E no seu index.css, delete todo o conteudo e em seguida adicione o seguinte código no topo:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+@import "tailwindcss";
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 5. Instale o Styled-Components
+
+npm install styled-components
+npm install --save-dev @types/styled-components
+
+### 6. Rode o projeto
+npm run dev
+
+📂 Como funciona?
+
+A tela principal (/) permite digitar o nome de um usuário do GitHub.
+
+Depois você pode escolher visualizar os dados em:
+    /Tailwind: com estilos utilizando TailwindCSS 💨
+    /Styled: com estilos utilizando Styled-Components 💅
+
+As rotas são gerenciadas com React Router.
+Os dados são obtidos diretamente da GitHub API.
+
+⚠️ Observações
+Caso digite um nome inválido, será exibida uma mensagem de erro.
+O botão de "Voltar à Pesquisa" sempre estará lá pra você tentar de novo 😊
+
+📃 Licença
+Este projeto é livre para estudos, testes e aperfeiçoamento. Faça bom uso!

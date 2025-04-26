@@ -13,6 +13,7 @@ interface HomeProps {
 function Home({ usuario, setUsuario }: HomeProps) {
   return (
     <div className='card'>
+      <h2 className='titulo'> Buscar Usuário do GitHub </h2>
       <div className='elementos-card'>
         <input className='input'
           placeholder='Informe o nome do usuário do GitHub'
